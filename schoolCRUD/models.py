@@ -86,6 +86,7 @@ class Materia(models.Model):
     no_estudiantes = models.IntegerField()
     grupos = models.IntegerField()
     profesores = models.ManyToManyField(Profesor)
+    calificacion = models.IntegerField(blank=True, null=True, default=None)
     tipo = "materia"
 
     def __str__(self):

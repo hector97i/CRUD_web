@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title %}CRUD - Profesores{% endblock %}
+{% block body %}
+
+<h1>Profesores</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nomina</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Email propio</th>
+            <th scope="col">Email Institucional</th>
+            <th scope="col">CURP</th>
+            <th scope="col">Lugar de nacimiento</th>
+            <th scope="col">NSS</th>
+            <th scope="col">Ultimo grado</th>
+            <th scope="col">Carrera</th>
+            <th scope="col">RFC</th>
+            <th scope="col">Area</th>
+            <th scope="col">Materias</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profesor in profesores %}
+        <tr class="table-primary">
+            <th>{{profesor.id}}</th>
+            <th>{{profesor.nomina}}</th>
+            <th>{{profesor.nombre}}</th>
+            <th>{{profesor.direccion}}</th>
+            <th>{{profesor.telefono}}</th>
+            <th>{{profesor.fecha_nacimiento}}</th>
+            <th>{{profesor.email_personal}}</th>   
+            <th>{{profesor.email_institucional}}</th>   
+            <th>{{profesor.curp}}</th>
+            <th>{{profesor.lugar_nacimiento}}</th>
+            <th>{{profesor.nss}}</th>
+            <th>{{profesor.ultimo_grado}}</th>
+            <th>{{profesor.major}}</th>
+            <th>{{profesor.rfc}}</th>
+            <th>{{profesor.area}}</th>
+            <th><a href="{% url 'materiasProf' profesor.id%}" style="color: #EB6864 !important;">Historial</a></th> 
+            <th>{{profesor.estado}}</th>
+            <th><a href="{% url 'editarProf' profesor.id%}" style="color: #EB6864 !important;">Edit</a></th> 
+            <th><a href="{% url 'delete_item' profesor.id profesor.tipo %}" style="color: #EB6864 !important;">X</a></th>             
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'nuevoAlumno' %}">Nuevo Alumno</a></button>
+</div>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'index' %}">Atras</a></button>
+</div>
+{% endblock %}

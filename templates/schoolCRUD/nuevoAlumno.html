@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}ManifestOS - {{title}}{% endblock %}
+
+{% block body %}
+{% if value == "edit" %}
+
+<form action="{% url 'editarAlumno' alumno.id %}" method="POST" class="p-3">
+    <fieldset>
+        <div class="mx-auto" style="width: 600px; border: 2px solid black; border-radius: 25px">
+            <div class="mx-auto text-center" style="align-content: center;">
+                <h1 class="p-3 m-3">{{title}}</h1>
+                    <div class="form-group d-inline-block">
+                        {% csrf_token %}
+                        <label class="d-block">Nombre</label>
+                        {{ form.nombre }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Dirección</label>
+                        {{ form.address }}
+                    </div>
+                    <div class="form-group d-inline-block">
+                        {% csrf_token %}
+                        <label class="d-block">Razón social</label>
+                        {{ form.legal_form }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">No. registro ambiental</label>
+                        {{ form.amb_reg_no }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">C.P.</label>
+                        {{ form.zip_code }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Ciudad</label>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Estado</label>
+                        {{ form.state }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Teléfono</label>
+                        {{ form.phone }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">En cargo</label>
+                        {{ form.is_in_charge }}
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-5" style="background-color: rgba(241, 124, 50, 1) !important;">{{button}}</button>
+                </div>
+            </div>
+    </fieldset>
+</form>
+<br/>
+
+{% elif value == "new" %}
+<form action="{% url 'nuevoAlumno' %}" method="POST" class="p-3">
+    <fieldset>
+        <div class="mx-auto" style="width: 600px; border: 2px solid black; border-radius: 25px">
+            <div class="mx-auto text-center" style="align-content: center;">
+                <h1 class="p-3 m-3">{{title}}</h1>
+                    <div class="form-group d-inline-block">
+                        {% csrf_token %}
+                        <label class="d-block">Nombre</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Dirección</label>
+                        {{ form.address }}
+                    </div>
+                    <div class="form-group d-inline-block">
+                        {% csrf_token %}
+                        <label class="d-block">Razón social</label>
+                        {{ form.legal_form }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">No. registro ambiental</label>
+                        {{ form.amb_reg_no }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">C.P.</label>
+                        {{ form.zip_code }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Ciudad</label>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Estado</label>
+                        {{ form.state }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Teléfono</label>
+                        {{ form.phone }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="d-block">En cargo</label>
+                        {{ form.is_in_charge }}
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-5" style="background-color: rgba(241, 124, 50, 1) !important;">{{button}}</button>
+                </div>
+            </div>
+    </fieldset>
+</form>
+<br/>
+{% endif %}
+{% endblock %}

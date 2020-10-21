@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title %}CRUD - Materias{% endblock %}
+{% block body %}
+
+<h1>Materias</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Clave</th>
+            <th scope="col">Creditos</th>
+            <th scope="col">Horas semanales</th>
+            <th scope="col">Ofertada antes</th>
+            <th scope="col">Area</th>
+            <th scope="col">Alumnos previos</th>
+            <th scope="col">Apertura</th>
+            <th scope="col">Alumnos cursando</th>
+            <th scope="col"># Grupos</th>
+            <th scope="col">Profesores</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for materia in materias %}
+        <tr class="table-primary">
+            <th>{{materia.id}}</th>
+            <th>{{materia.nomina}}</th>
+            <th>{{materia.nombre}}</th>
+            <th>{{materia.direccion}}</th>
+            <th>{{materia.telefono}}</th>
+            <th>{{materia.fecha_nacimiento}}</th>
+            <th>{{materia.email_personal}}</th>   
+            <th>{{materia.email_institucional}}</th>   
+            <th>{{materia.curp}}</th>
+            <th>{{materia.lugar_nacimiento}}</th>
+            <th>{{materia.nss}}</th>
+            <th>{{materia.ultimo_grado}}</th>
+            <th>{{materia.major}}</th>
+            <th>{{materia.rfc}}</th>
+            <th>{{materia.area}}</th>
+            <th><a href="{% url 'materiasProf' profesor.id%}" style="color: #EB6864 !important;">Historial</a></th> 
+            <th>{{profesor.estado}}</th>
+            <th><a href="{% url 'editarProf' profesor.id%}" style="color: #EB6864 !important;">Edit</a></th> 
+            <th><a href="{% url 'delete_item' profesor.id profesor.tipo %}" style="color: #EB6864 !important;">X</a></th>             
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'nuevoAlumno' %}">Nuevo Alumno</a></button>
+</div>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'index' %}">Atras</a></button>
+</div>
+{% endblock %}
