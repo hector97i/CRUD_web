@@ -52,4 +52,26 @@ def historial(request, id):
     }
     return render(request, 'schoolCRUD/historial.html', context)
 
+
 def editarAlumno(request, id):
+    return render(request, 'schoolCRUD/editarAlumno.html', contexto)
+
+def delete_item(request, id, typ_e):
+
+    if typ_e == 'almno':
+        item = ALumno.objects.get(pk=id)
+        item.delete()
+        return HttpResponseRedirect(reverse('alumnos'))
+    elif typ_e == 'profesor':
+        item = Profesor.objects.get(pk=id)
+        item.delete()
+        return HttpResponseRedirect(reverse('profesores'))
+    elif typ_e == 'materia':
+        item = Materia.objects.get(pk=id)
+        item.delete()
+        return HttpResponseRedirect(reverse('materias'))
+    elif typ_e == 'carrera':
+        item = Carrera.objects.get(pk=id)
+        item.delete()
+        return HttpResponseRedirect(reverse('carreras'))
+    
