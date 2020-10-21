@@ -1,0 +1,22 @@
+select {
+    display: block;
+}
+
+nav {
+    background-color: rgb(34, 87, 138) !important;
+}
+button {
+    background-color: rgb(21, 140, 209) !important;
+}
+
+a {
+    color: white;
+}
+
+.logout a h2{
+    color: rgba(255,255,255,0.5) !important;
+}
+
+.logout a h2:hover{
+    color: rgba(255,255,255,0.8) !important;
+}

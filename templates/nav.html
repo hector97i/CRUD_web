@@ -1,0 +1,27 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-ligth">
+  <a class="navbar-brand" href="/">
+  
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" id="alumnos">
+        <a class="nav-link" href="{% url 'alumnos' %}"><h2>Alumnos </h2><span class="sr-only">(current)</span></a> 
+      </li>
+      <li class="nav-item" id="profesores">
+        <a class="nav-link" href="{% url 'profesores' %}"><h2>Profesores</h2></a>
+      </li>
+      <li class="nav-item" id="materias">
+        <a class="nav-link" href="{% url 'materias' %}"><h2>Materias</h2></a>
+      </li>
+      <li class="nav-item" id="carreras">
+        <a class="nav-link" href="{% url 'carreras' %}"><h2>Carreras</h2></a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+<script src="{% static 'js/IsActive.js' %}"></script>

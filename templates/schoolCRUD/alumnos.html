@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title %}CRUD - Alumnos{% endblock %}
+{% block body %}
+
+<h1>Alumnos</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Email</th>
+            <th scope="col">CURP</th>
+            <th scope="col">Lugar de nacimiento</th>
+            <th scope="col">Tutor</th>
+            <th scope="col">Carrera</th>
+            <th scope="col">Semestre</th>
+            <th scope="col">Historial</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr class="table-primary">
+            <th>{{alumno.id}}</th>
+            <th>{{alumno.matricula}}</th>
+            <th>{{alumno.direccion}}</th>
+            <th>{{alumno.telefono}}</th>
+            <th>{{alumno.fecha_nacimiento}}</th>
+            <th>{{alumno.email}}</th>   
+            <th>{{alumno.curp}}</th>
+            <th>{{alumno.lugar_nacimiento}}</th>
+            <th>{{alumno.tutor}}</th>
+            <th>{{alumno.carrera}}</th>
+            <th>{{alumno.semestre}}</th>
+            <th><a href="{% url 'historial' alumno.id%}" style="color: #EB6864 !important;">Historial</a></th> 
+            <th>{{alumno.estado}}</th>
+            <th><a href="{% url 'editarAlumno' alumno.id%}" style="color: #EB6864 !important;">Edit</a></th> 
+            <th><a href="{% url 'delete_item' alumno.id alumno.tipo %}" style="color: #EB6864 !important;">X</a></th>             
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'nuevoAlumno' %}">Nuevo Alumno</a></button>
+</div>
+<div class="p-1">
+    <button class="btn btn-primary"><a href="{% url 'index' %}">Atras</a></button>
+</div>
+{% endblock %}
